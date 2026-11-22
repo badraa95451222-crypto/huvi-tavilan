@@ -1,11 +1,80 @@
-<div align="center">
+# ХУВЬ ТАВИЛАН
 
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+**ХУВЬ ТАВИЛАН** — Destiny болон түүний гурван найз **Kryss**, **Mikey**, **Vana** нарын өнгөрсөн нууц, итгэлцэл, хувь тавиланг өгүүлэх гурван бүлэгт пиксел-арт сэтгэл зүйн аймшгийн адал явдалт тоглоом.
 
-  <h1>Built with AI Studio</h2>
+**Тоглоом бүтээгч: Шидбадар**
 
-  <p>The fastest path from prompt to production with Gemini.</p>
+---
 
-  <a href="https://aistudio.google.com/apps">Start building</a>
+## Тоглоомын онцлогууд
 
-</div>
+- **Гурван бүлэгтэй өрнөл (3 Chapters)**:
+  1. **Бүлэг I · Сүүдэртэй Босго** — Хуучин байшингийн зочны өрөө ба цахилгаан самбарын оньсого
+  2. **Бүлэг II · Нуугдсан Дурсамж** — Аавын ажлын өрөө, найзуудын нууц ба 4 оронтой дурсамжийн цоож
+  3. **Бүлэг III · Сүүлийн Сонголт** — Сүүдрийн зоорь, Гурван Сүлдний тавцан ба эцсийн шийдвэр
+- **Хоёр өөр төгсгөл (2 Endings)**:
+  - **Төгсгөл I · Үнэний Гэрэл**
+  - **Төгсгөл II · Сүүдрийн Цуурай**
+- **Пиксел-арт дүрслэл ба Анимейшн**: HTML5 Canvas дээрх гар аргаар зурсан пиксел-арт газрын зураг, гэрэлтүүлэг, амьсгал болон нүд цавчилттай хөрөг зураг.
+- **Удирдлага**:
+  - **Компьютер**: `WASD` эсвэл Сум товчлуураар хөдлөх, `E` / `Space` / `Enter`-ээр шалгах ба ярилцах, `I`-аар цүнх нээх, `Esc`-ээр түр зогсоох.
+  - **Гар утас / Таблет**: Дэлгэц дээрх мэдрэгчтэй D-Pad болон үйлдлийн товчлуурууд.
+- **Дуу ба Хадгалалт**: Web Audio API синтезатор дууны эффектүүд болон `localStorage` дээр суурилсан 3 үүртэй хадгалах/ачаалах систем.
+- **100% Статик (API key шаардахгүй)**: Ямар ч сервер эсвэл гадны API түлхүүр шаардахгүй.
+
+---
+
+## Локал орчинд ажиллуулах (Local Setup)
+
+Шаардлага: Node.js `>= 18` болон `npm`.
+
+```bash
+# 1. Хамаарлуудыг суулгах
+npm install
+
+# 2. Хөгжүүлэлтийн сервер ажиллуулах (http://localhost:3000)
+npm run dev
+
+# 3. TypeScript төрөл шалгах
+npm run lint
+
+# 4. Production build хийх (dist/ хавтас үүснэ)
+npm run build
+
+# 5. Production build-ийг урьдчилан шалгах
+npm run preview
+```
+
+---
+
+## Vercel дээр байршуулах (Deploy to Vercel)
+
+Төсөл нь `vercel.json` тохиргоотой бөгөөд шууд Vercel дээр байршуулахад бэлэн.
+
+### Арга 1: GitHub + Vercel (Зөвлөмж)
+1. GitHub дээр шинэ repository үүсгэж энэ төслийн бүх файлыг push хийнэ:
+   ```bash
+   git init
+   git add .
+   git commit -m "Initial commit: ХУВЬ ТАВИЛАН"
+   git branch -M main
+   git remote add origin https://github.com/<USERNAME>/<REPO_NAME>.git
+   git push -u origin main
+   ```
+2. [vercel.com](https://vercel.com) руу нэвтэрч **Add New... → Project** дээр дарна.
+3. GitHub repository-гоо **Import** хийнэ.
+4. Доорх тохиргоо автоматаар сонгогдоно (`vercel.json`-оор):
+   - **Framework Preset**: `Vite`
+   - **Build Command**: `npm run build`
+   - **Output Directory**: `dist`
+   - **Install Command**: `npm install`
+5. Ямар ч Environment Variable нэмэх шаардлагагүй. **Deploy** товчийг дарна.
+
+### Арга 2: Vercel CLI ашиглан шууд байршуулах
+ZIP файлыг задалсан хавтас дотроо:
+```bash
+npm install -g vercel
+npm install
+npm run build
+vercel --prod
+```

@@ -1,0 +1,116 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-pixel-title: 'Press Start 2P', monospace;
+    --font-pixel-body: 'Pixelify Sans', 'IBM Plex Mono', monospace;
+    --font-mono-ui: 'IBM Plex Mono', monospace;
+  }
+
+  * {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #07080c;
+    color: #e8e2d5;
+    font-family: var(--font-pixel-body);
+    overflow: hidden;
+    user-select: none;
+  }
+}
+
+.font-pixel-title {
+  font-family: var(--font-pixel-title);
+}
+
+.font-pixel-body {
+  font-family: var(--font-pixel-body);
+}
+
+.font-mono-ui {
+  font-family: var(--font-mono-ui);
+}
+
+.pixelated {
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+/* Subtle horror scanlines without hurting contrast */
+.crt-scanlines {
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0) 50%,
+    rgba(0, 0, 0, 0.16) 50%,
+    rgba(0, 0, 0, 0.16)
+  );
+  background-size: 100% 4px;
+}
+
+.pixel-panel {
+  background-color: rgba(12, 14, 22, 0.94);
+  border: 2px solid #3a3f54;
+  box-shadow:
+    inset 0 0 0 2px #141724,
+    0 8px 30px rgba(0, 0, 0, 0.75);
+}
+
+.pixel-btn {
+  border: 2px solid #4d5470;
+  background-color: #161926;
+  box-shadow: inset 0 -2px 0 #0a0c14;
+  transition: transform 100ms ease, background-color 140ms ease, border-color 140ms ease;
+}
+
+.pixel-btn:hover:not(:disabled) {
+  background-color: #21263a;
+  border-color: #d99b43;
+}
+
+.pixel-btn:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.pixel-btn-primary {
+  border: 2px solid #d99b43;
+  background-color: #2a1f14;
+  color: #f7dfb9;
+  box-shadow: inset 0 -2px 0 #140d07;
+}
+
+.pixel-btn-primary:hover:not(:disabled) {
+  background-color: #3d2b19;
+  border-color: #f4be6b;
+}
+
+/* Custom thin dark scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0c0e16;
+}
+::-webkit-scrollbar-thumb {
+  background: #363c52;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #d99b43;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
